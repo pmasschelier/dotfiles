@@ -3,9 +3,11 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="${XDG_DATA_HOME:-$HOME/.local/share}/oh-my-zsh"
+[[ -f "$HOME/bin/gef.py" ]] || wget -O ~/bin/gef.py -q https://gef.blah.cat/py
 
 ZDOTDIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 # ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+HISTFILE="$ZDOTDIR/zhistfile"
 
 # Download oh-my-zsh, if it's not there yet
 if [ ! -d "$ZSH" ]; then

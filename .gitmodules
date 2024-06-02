@@ -7,3 +7,12 @@
 [submodule ".config/oh-my-zsh/plugins/zsh-completions"]
 	path = .config/oh-my-zsh/plugins/zsh-completions
 	url = git@github.com:zsh-users/zsh-completions.git
+[submodule ".config/oh-my-zsh/plugins/fzf-zsh-plugin"]
+	path = .config/oh-my-zsh/plugins/fzf-zsh-plugin
+	url = git@github.com:unixorn/fzf-zsh-plugin.git
+[submodule ".config/oh-my-zsh/plugins/fzf-tab"]
+	path = .config/oh-my-zsh/plugins/fzf-tab
+	url = git@github.com:Aloxaf/fzf-tab.git
+[submodule ".local/share/fzf-git.sh"]
+	path = .local/share/fzf-git.sh
+	url = git@github.com:junegunn/fzf-git.sh.git

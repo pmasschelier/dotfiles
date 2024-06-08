@@ -61,6 +61,7 @@ zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=do
 
 # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --tree --level 3 --color=always ${(Q)realpath} | head -200'
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'fzf-preview.zsh $realpath' # 'less ${(Q)realpath}'
+zstyle ':fzf-tab:complete:make:*' fzf-preview '$words -n $word' # 'less ${(Q)realpath}'
 # zstyle ':fzf-tab:complete:*:path-directories' fzf-preview 'echo test' # 'eza --tree --level 3 --color=always ${(Q)realpath} | head -200'
 # zstyle ':fzf-tab:complete:*:*' fzf-flags --preview-window=bottom:100:wrap
 zstyle ':fzf-tab:complete:*:options' fzf-preview 

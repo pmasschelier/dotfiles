@@ -1,13 +1,15 @@
+echo "Running .zshrc..."
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="${XDG_DATA_HOME:-$HOME/.local/share}/oh-my-zsh"
 [[ -f "$HOME/bin/gef.py" ]] || wget -O ~/bin/gef.py -q https://gef.blah.cat/py
 
 ZDOTDIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
-# ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-HISTFILE="$ZDOTDIR/zhistfile"
+# Change completion cache filename (default: $ZDOTDIR/.zcompdump-$HOST)ZSH_COMPDUMP=$ZSH/cache/
+ZSH_COMPDUMP=$ZDOTDIR/.zcompdump-$HOST
+# Change history file (default: $ZDOTDIR/.zsh_history)
+HISTFILE="$ZDOTDIR/zsh_history"
 
 # Download oh-my-zsh, if it's not there yet
 if [ ! -d "$ZSH" ]; then
@@ -115,6 +117,7 @@ source $ZSH/oh-my-zsh.sh
 
 # zstyle ':completion:*:make:*:targets' call-command true
 # zstyle ':completion:*:*:make:*' tag-order 'targets'
+# zstyle ':completion:*:*:make:*' command "make_targets.sh"
 # zstyle ':completion:*' menu no
 # zstyle ':completion:*:*:*:*:paths' command 'fd --hidden --exclude .git .'
 # zstyle ':completion:*:*:*:*:path-directories' command "echo test" # 'fd --type=d --hidden --exclude .git .'
@@ -125,9 +128,6 @@ source $ZSH/oh-my-zsh.sh
 # zstyle ':completion:*:descriptions' format '[%d]'
 # zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 
-OPT_PATHS=`echo /opt/*/bin /opt/*/build | sed "s/ /:/g"`
-export PATH="$PATH:$HOME/bin:$OPT_PATHS"
-export MANPATH="/usr/share/man:$MANPATH"
 export LESSOPEN='|~/bin/fzf-preview.zsh %s'
 
 # --- setup fzf theme ---
@@ -151,30 +151,6 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 export FZF_CTRL_T_OPTS="--preview 'fzf-preview.zsh {}'"
 export FZF_ALT_C_OPTS="$FZF_CTRL_T_OPTS"
 
-# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-# _fzf_compgen_path() {
-#   fd --hidden --exclude .git . "$1"
-# }
-#
-# # Use fd to generate the list for directory completion
-# _fzf_compgen_dir() {
-#   fd --type=d --hidden --exclude .git . "$1"
-# }
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'  # For remote session
-else
-  export EDITOR='nvim' # For local session
-fi
-
-# Compilation flags
-export ARCHFLAGS="-march=native"
-
 # bun completions
 [ -s "/home/tintin/.bun/_bun" ] && source "/home/tintin/.bun/_bun"
 
@@ -187,3 +163,11 @@ export DOCKER_BUILDKIT=1
 
 source "${XDG_CONFIG_HOME:-$HOME/.config}/broot/launcher/bash/br"
 source "$HOME/.local/share/fzf-git.sh/fzf-git.sh"
+
+# Setup direnv
+# See: https://direnv.net/
+if (( $+commands[direnv] )); then
+	eval "$(direnv hook zsh)"
+fi
+
+

@@ -6,18 +6,33 @@
 
 alias c="clear"
 alias cat="bat --pager=never --plain"
-# alias sudo="sudo -v; sudo "
+alias stow="stow --dotfiles"
 alias ltree="tree -dL 3 | lolcat"
-alias zcc='gcc -Wall -Wextra -pedantic -std=c11 -fno-common -fno-builtin'
-alias zpp='g++ -Wall -Wextra -pedantic -std=c++20 -fno-common -fno-builtin'
+
+# tar
+alias tarls="tar -tvf"
+alias untar="tar -xf"
+
+# Fix typos
+alias cd..='cd ..'
+
+# Compilers options
+alias zcc="gcc $ARCHFLAGS -Wall -Wextra -pedantic -std=c11 -fno-common -fno-builtin"
+alias zpp="g++ $ARCHFLAGS -Wall -Wextra -pedantic -std=c++20 -fno-common -fno-builtin"
+
 alias sld="streamlink --hls-segment-threads 2 -p mpv -a '--cache=yes --demuxer-max-bytes=8192KiB --hwdec=auto-safe'"
 alias ytb-music="yt-dlp -x -f 'bestaudio[ext=m4a]' -o '~/Musique/tmp/%(title)s.%(ext)s' --no-playlist --embed-thumbnail"
 alias ytb-playlist="yt-dlp -x -f 'bestaudio[ext=m4a]' -o '~/Musique/tmp/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' --yes-playlist --embed-thumbnail --embed-metadata"
+# alias sudo="sudo -v; sudo "
+
+# systemctl aliases
 alias sysstart="sudo systemctl start"
 alias sysrestart="sudo systemctl restart"
 alias sysstatus="sudo systemctl status"
 alias sysstop="sudo systemctl stop"
+
 # alias nvim="alacritty -e nvim &"
+
 alias myip="curl http://ipecho.net/plain; echo"
 alias path='echo $PATH | sed "s/:/\n/g"'
 

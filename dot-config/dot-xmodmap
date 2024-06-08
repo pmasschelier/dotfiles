@@ -1,0 +1,3 @@
+! Make right control act as left ctrl
+keycode 105 = Control_R NoSymbol Control_R
+add control = Control_R

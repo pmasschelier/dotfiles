@@ -1,15 +1,17 @@
-echo "Running .zshrc..."
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="${XDG_DATA_HOME:-$HOME/.local/share}/oh-my-zsh"
-[[ -f "$HOME/bin/gef.py" ]] || wget -O ~/bin/gef.py -q https://gef.blah.cat/py
 
-ZDOTDIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
-# Change completion cache filename (default: $ZDOTDIR/.zcompdump-$HOST)ZSH_COMPDUMP=$ZSH/cache/
-ZSH_COMPDUMP=$ZDOTDIR/.zcompdump-$HOST
-# Change history file (default: $ZDOTDIR/.zsh_history)
-HISTFILE="$ZDOTDIR/zsh_history"
+ZSH_CACHE_DIR="${ZSH_CACHE_DIR:-$ZSH/cache}"
+# Alternative: store cache files in .cache folder
+# ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+
+# Change completion cache filename (default: ${ZDOTDIR:-$HOME}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION} )
+ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump"
+
+# Change history file (default: $HOME/.zsh_history)
+HISTFILE="$ZSH_CACHE_DIR/zsh_history"
 
 # Download oh-my-zsh, if it's not there yet
 if [ ! -d "$ZSH" ]; then
@@ -18,6 +20,8 @@ if [ ! -d "$ZSH" ]; then
 fi
 
 [[ -d "$ZDOTDIR" ]] || mkdir -p $ZDOTDIR
+
+[[ -f "$HOME/bin/gef.py" ]] || wget -O ~/bin/gef.py -q https://gef.blah.cat/py
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,21 +117,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-#################### Configuration of completion plugin #################### 
-
-# zstyle ':completion:*:make:*:targets' call-command true
-# zstyle ':completion:*:*:make:*' tag-order 'targets'
-# zstyle ':completion:*:*:make:*' command "make_targets.sh"
-# zstyle ':completion:*' menu no
-# zstyle ':completion:*:*:*:*:paths' command 'fd --hidden --exclude .git .'
-# zstyle ':completion:*:*:*:*:path-directories' command "echo test" # 'fd --type=d --hidden --exclude .git .'
-# zstyle ':completion:*:*:*:*:command' command "echo test" # 'fd --type=d --hidden --exclude .git .'
-
-# set descriptions format to enable group support
-# NOTE: don't use escape sequences here, fzf-tab will ignore them
-# zstyle ':completion:*:descriptions' format '[%d]'
-# zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
-
 export LESSOPEN='|~/bin/fzf-preview.zsh %s'
 
 # --- setup fzf theme ---
@@ -169,5 +158,4 @@ source "$HOME/.local/share/fzf-git.sh/fzf-git.sh"
 if (( $+commands[direnv] )); then
 	eval "$(direnv hook zsh)"
 fi
-
 

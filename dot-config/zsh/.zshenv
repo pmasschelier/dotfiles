@@ -1,5 +1,3 @@
-echo "Running .zenv..."
-
 # Setup PATH variable
 typeset -U path PATH
 OPT_PATHS=`echo /opt/*/bin /opt/*/build`

@@ -8,6 +8,8 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 # autoload -Uz compinit && compinit
 
+# See: https://wiki.archlinux.org/title/Zsh#Persistent_rehash
+# zstyle ':completion:*' rehash true
 # zstyle ':completion:*:make:*:targets' call-command true
 # zstyle ':completion:*:*:make:*' tag-order 'targets'
 # zstyle ':completion:*' menu no

@@ -141,11 +141,11 @@ export FZF_CTRL_T_OPTS="--preview 'fzf-preview.zsh {}'"
 export FZF_ALT_C_OPTS="$FZF_CTRL_T_OPTS"
 
 # bun completions
-[ -s "/home/tintin/.bun/_bun" ] && source "/home/tintin/.bun/_bun"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # docker
 export DOCKER_BUILDKIT=1

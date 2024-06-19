@@ -72,7 +72,7 @@ return {
       {
         "<leader>fl",
         "<cmd>Telescope software-licenses find<cr>",
-        { desc = "Software Licenses" },
+        desc = "Software Licenses",
       },
     },
   },

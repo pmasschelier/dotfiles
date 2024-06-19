@@ -1,15 +1,6 @@
-# Setup PATH variable
-typeset -U path PATH
-OPT_PATHS=`echo /opt/*/bin /opt/*/build`
-# z parameter expansion flags:
-# Split the result of the expansion into words using shell parsing to find the words
-# See: https://zsh.sourceforge.io/Doc/Release/Expansion.html
-path=($path $HOME/bin ${(z)OPT_PATHS})
-export PATH
-
 # Compilation flags
 export ARCHFLAGS="-march=native"
-
+ 
 # XDG Base Directory
 # See: https://wiki.archlinux.org/title/XDG_Base_Directory
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -33,4 +24,18 @@ else
   export EDITOR='nvim' # For local session
 fi
 
-. "$HOME/.cargo/env"
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+
+OPT_PATHS=`echo /opt/*/bin /opt/*/build`
+# z parameter expansion flags:
+# Split the result of the expansion into words using shell parsing to find the words
+# See: https://zsh.sourceforge.io/Doc/Release/Expansion.html
+typeset -U path PATH
+path=($path $HOME/.local/bin $HOME/bin $CARGO_HOME/bin $BUN_INSTALL/bin ${(z)OPT_PATHS})
+export PATH
+echo
+echo $PATH | sed 's/:/\n/g'
+
+# . "$XDG_DATA_HOME/.cargo/env"

@@ -35,7 +35,5 @@ OPT_PATHS=`echo /opt/*/bin /opt/*/build`
 typeset -U path PATH
 path=($path $HOME/.local/bin $HOME/bin $CARGO_HOME/bin $BUN_INSTALL/bin ${(z)OPT_PATHS})
 export PATH
-echo
-echo $PATH | sed 's/:/\n/g'
 
 # . "$XDG_DATA_HOME/.cargo/env"

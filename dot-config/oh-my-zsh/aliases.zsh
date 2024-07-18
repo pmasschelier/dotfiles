@@ -19,6 +19,7 @@ alias cd..='cd ..'
 # Compilers options
 alias zcc="gcc $ARCHFLAGS -Wall -Wextra -pedantic -std=c11 -fno-common -fno-builtin"
 alias zpp="g++ $ARCHFLAGS -Wall -Wextra -pedantic -std=c++20 -fno-common -fno-builtin"
+alias disasm="objdump --source-comment='; ' --disassembler-color=extended --disassembler-option=intel-mnemonic --no-show-raw-insn"
 
 alias sld="streamlink --hls-segment-threads 2 -p mpv -a '--cache=yes --demuxer-max-bytes=8192KiB --hwdec=auto-safe'"
 alias ytb-music="yt-dlp -x -f 'bestaudio[ext=m4a]' -o '~/Musique/tmp/%(title)s.%(ext)s' --no-playlist --embed-thumbnail"

@@ -16,7 +16,7 @@ if [ -d "$1" ]; then
 # elif [ "$kind" = vnd.openxmlformats-officedocument.spreadsheetml.sheet ] || \
 # 	[ "$kind" = vnd.ms-excel ]; then
 # 	in2csv "$1" | xsv table | bat -ltsv --color=always
-elif [ "$category" = text ] || [ "$kind" = json ]; then
+elif [ "$category" = text ] || [ "$kind" = json ] || [ "${kind:0:3}" = svg ]; then
 	if (( $+commands[bat] )); then
 		bat --plain --color=always "$1"
 	else

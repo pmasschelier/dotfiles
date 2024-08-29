@@ -25,6 +25,7 @@ else
 fi
 
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
+export ZIG_INSTALL="$XDG_DATA_HOME/zig"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 

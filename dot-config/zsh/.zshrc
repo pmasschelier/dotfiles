@@ -150,7 +150,7 @@ export FZF_ALT_C_OPTS="$FZF_CTRL_T_OPTS"
 # docker
 export DOCKER_BUILDKIT=1
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/broot/launcher/bash/br"
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/broot/launcher/bash/br"
 source "$HOME/.local/share/fzf-git.sh/fzf-git.sh"
 
 # Setup direnv

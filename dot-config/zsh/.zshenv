@@ -29,12 +29,12 @@ export ZIG_INSTALL="$XDG_DATA_HOME/zig"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 
-OPT_PATHS=`echo /opt/*/bin /opt/*/build`
+OPT_PATHS=("/opt/*/bin(N)" "/opt/*/build(N)")
 # z parameter expansion flags:
 # Split the result of the expansion into words using shell parsing to find the words
 # See: https://zsh.sourceforge.io/Doc/Release/Expansion.html
 typeset -U path PATH
-path=($path $HOME/.local/bin $HOME/bin $CARGO_HOME/bin $BUN_INSTALL/bin ${(z)OPT_PATHS})
+path=($path $HOME/.local/bin $HOME/bin $CARGO_HOME/bin $BUN_INSTALL/bin ${~OPT_PATHS})
 export PATH
 
 # . "$XDG_DATA_HOME/.cargo/env"

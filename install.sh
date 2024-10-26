@@ -1,8 +1,13 @@
 #!/usr/bin/sh
 
-mkdir -p ~/bin ~/.config/zsh ~/.local/share/fonts ~/.local/share/nvm
-[[ -d ~/.local/share/fonts/JetBrainsMono ]] || curl https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.tar.xz | tar xf -C ~/.local/share/fonts
-stow --dotfiles --target=~ .
+LOCAL_FONT_FOLDER=~/.local/share/fonts
+NERD_FONT_FOLDER=$LOCAL_FONT_FOLDER/JetBrainsMono
+mkdir -p ~/bin ~/.config/zsh $LOCAL_FONT_FOLDER ~/.local/share/nvm
+if [[ ! -d $NERD_FONT_FOLDER ]] then
+	mkdir $NERDD_FONT_FOLDER
+	curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.tar.xz | tar xJf - -C $NERD_FONT_FOLDER
+fi
+stow --dotfiles --target=$HOME .
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://bun.sh/install | bash

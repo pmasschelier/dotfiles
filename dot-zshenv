@@ -40,3 +40,5 @@ path=($path $HOME/.local/bin $NVM_DIR $HOME/bin $BUN_INSTALL/bin $CARGO_HOME/bin
 export PATH
 
 # . "$XDG_DATA_HOME/.cargo/env"
+
+export APPTAINER_TMPDIR="$XDG_CACHE_HOME/apptainer"

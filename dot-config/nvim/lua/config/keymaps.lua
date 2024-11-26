@@ -17,7 +17,7 @@ function RunCommand(command, description)
 end
 
 -- Map <leader>sp to the Telescope notify command
-vim.keymap.set("n", "<leader>sp", "<cmd>Telescope notify<cr>", { desc = "Print notifications" })
+-- vim.keymap.set("n", "<leader>sp", "<cmd>Telescope notify<cr>", { desc = "Print notifications" })
 vim.keymap.set("n", "<leader>mm", "<cmd>make<cr>", { desc = "make all" })
 
 vim.keymap.set("n", "<leader>mb", function()

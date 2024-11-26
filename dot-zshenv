@@ -41,4 +41,5 @@ export PATH
 
 # . "$XDG_DATA_HOME/.cargo/env"
 
-export APPTAINER_TMPDIR="$XDG_CACHE_HOME/apptainer"
+export APPTAINER_CACHEDIR="$XDG_CACHE_HOME/apptainer/cache"
+export APPTAINER_TMPDIR="$XDG_CACHE_HOME/apptainer/tmp"

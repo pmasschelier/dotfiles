@@ -13,6 +13,13 @@ cargo install du-dust
 ./install.sh
 ```
 
+## Backup
+
+You can use the backup-exclude.txt file to filter your backup
+```sh
+tar czvf "`date --iso-8601`.tar.gz" -X backup-exclude.txt .
+```
+
 ## Neovim configuration
 
 My neovim configuration is based on the LazyVim distribution.

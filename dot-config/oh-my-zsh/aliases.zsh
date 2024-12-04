@@ -20,7 +20,9 @@ alias cd..='cd ..'
 alias zcc="gcc $ARCHFLAGS -Wall -Wextra -pedantic -std=c11 -fno-common -fno-builtin"
 alias zpp="g++ $ARCHFLAGS -Wall -Wextra -pedantic -std=c++20 -fno-common -fno-builtin"
 alias disasm="objdump --source-comment='; ' --disassembler-color=extended --disassembler-options=intel --no-show-raw-insn"
-if (( $+commands[zigup] )); then
+if (( $+commands[zigdown] )); then
+	alias zigup="zigdown"
+elif (( $+commands[zigup] )); then
 	alias zigup="zigup --install-dir $ZIG_INSTALL --path-link $HOME/.local/bin/zig"
 fi
 

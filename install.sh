@@ -40,7 +40,7 @@ install_nvm() {
 }
 
 mkdir -p ~/bin
-stow --dotfiles --target=$HOME . || rmdir ~/bin 2>&1 /dev/null && exit 1
+stow --dotfiles --target=$HOME . || rmdir ~/bin 2>&1 > /dev/null && exit 1
 
 # XDG Base Directory
 # See: https://wiki.archlinux.org/title/XDG_Base_Directory

@@ -2,6 +2,19 @@
 
 ## Installation
 
+### Minimal requirements
+
+To install this configuration you should at least have git and stow installed.
+
+Moreover this configuration is intended to be used with zsh
+
+On Fedora you can change to use zsh with these commands:
+```sh
+sudo dnf install zsh
+sudo chsh $USER
+> /bin/zsh
+```
+
 ### With Fedora:
 
 ```

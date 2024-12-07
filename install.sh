@@ -17,7 +17,7 @@ confirm_and_run() {
 install_nerd_font() {
     LOCAL_FONT_FOLDER=~/.local/share/fonts
     NERD_FONT_FOLDER=$LOCAL_FONT_FOLDER/JetBrainsMono
-    mkdir -p ~/bin ~/.config/zsh $LOCAL_FONT_FOLDER ~/.local/share/nvm
+    mkdir -p $LOCAL_FONT_FOLDER 
     if [[ ! -d $NERD_FONT_FOLDER ]] then
         mkdir -p $NERD_FONT_FOLDER
         curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.tar.xz | tar xJf - -C $NERD_FONT_FOLDER
@@ -35,8 +35,12 @@ install_bun() {
 }
 
 install_nvm() {
+    mkdir -p ~/.local/share/nvm
     PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
 }
+
+mkdir -p ~/bin
+stow --dotfiles --target=$HOME . || rmdir ~/bin 2>&1 /dev/null && exit 1
 
 # XDG Base Directory
 # See: https://wiki.archlinux.org/title/XDG_Base_Directory
@@ -50,5 +54,4 @@ confirm_and_run "Do you want to install rustup ?" "install_rustup"
 confirm_and_run "Do you want to install bun ?" "install_bun"
 confirm_and_run "Do you want to install nvm ?" "install_nvm"
 
-stow --dotfiles --target=$HOME .
 

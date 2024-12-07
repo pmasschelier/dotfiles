@@ -31,10 +31,13 @@ install_rustup() {
 }
 
 install_bun() {
+    export BUN_INSTALL="$XDG_DATA_HOME/bun"
     curl -fsSL https://bun.sh/install | bash
 }
 
 install_nvm() {
+    export NVM_DIR="$XDG_DATA_HOME/nvm"
+    export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npmrc"
     mkdir -p ~/.local/share/nvm
     PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
 }

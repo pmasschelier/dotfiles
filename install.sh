@@ -42,11 +42,9 @@ install_nvm() {
     PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
 }
 
-mkdir -p ~/bin
-if ! stow --dotfiles --target="$HOME" .; then
-    rmdir ~/bin > /dev/null 2>&1
-    exit 1
-fi
+# install_gef() {
+#     wget -O ~/bin/gef.py -q https://gef.blah.cat/py
+# }
 
 # XDG Base Directory
 # See: https://wiki.archlinux.org/title/XDG_Base_Directory
@@ -55,9 +53,14 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+mkdir -p ~/bin
+if ! stow --dotfiles --target="$HOME" .; then
+    rmdir ~/bin > /dev/null 2>&1
+    exit 1
+fi
+
+(cd $XDG_DATA_HOME/pwndbg && ./setup.sh)
+
 confirm_and_run "Do you want to install a JetBrainsMono font ?" "install_nerd_font"
 confirm_and_run "Do you want to install rustup ?" "install_rustup"
 confirm_and_run "Do you want to install bun ?" "install_bun"
-confirm_and_run "Do you want to install nvm ?" "install_nvm"
-
-

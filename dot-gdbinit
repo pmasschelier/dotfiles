@@ -1,7 +1,36 @@
-source ~/bin/gef.py
-source ~/bin/gef_tmux.py
-custom-tmux-setup
-# python custom_tmux_setup()
-set disassembly-flavor intel
-gef config context.grow_stack_down 1
-gef config context.enable 1
+source ~/.local/share/pwndbg/gdbinit.py
+
+# NOTE: : pwndbg_code layout
+# tui new-layout pwndbg_code {
+#     -horizontal
+#     {
+#         {
+#             -horizontal { pwndbg_code 1 pwndbg_disasm 1 } 2
+#             {
+#                 {-horizontal pwndbg_legend 8 pwndbg_control 2 }
+#                 1 pwndbg_regs 6 pwndbg_stack 6
+#             } 3
+#         } 7
+#         cmd 3
+#     } 3
+#     { pwndbg_backtrace 2 pwndbg_threads 1 pwndbg_expressions 2 } 1
+# } 1 status 1
+
+# NOTE: Formated version of pwndbg_custom
+# tui new-layout pwndbg_custom {
+#     -horizontal
+#     { pwndbg_code 1 pwndbg_disasm 1 cmd 1 } 2
+#     {
+#         {-horizontal pwndbg_legend 8 pwndbg_control 2 } 1
+#         pwndbg_regs 7
+#         pwndbg_stack 5
+#         pwndbg_backtrace 3
+#     } 2
+# } 1 status 1
+
+tui new-layout pwndbg_custom { -horizontal { pwndbg_code 1 pwndbg_disasm 1 cmd 1 } 2 { {-horizontal pwndbg_legend 8 pwndbg_control 2 } 1 pwndbg_regs 7 pwndbg_stack 5 pwndbg_backtrace 3 } 2 } 1 status 1
+layout pwndbg_custom
+
+set debuginfod enabled off
+set context-stack-lines 12
+set show-flags on

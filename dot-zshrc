@@ -21,8 +21,6 @@ fi
 
 [[ -z "$ZDOTDIR" ]] || mkdir -p $ZDOTDIR
 
-[[ -f "$HOME/bin/gef.py" ]] || wget -O ~/bin/gef.py -q https://gef.blah.cat/py
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -102,13 +100,11 @@ plugins=(
 	colored-man-pages # adds colors to man pages
 	copyfile # add copyfile command
 	copypath # add copypath command
-	fzf # enables fzf fuzzy auto-completion and key bindings
 	git
 	sudo # Appuyer 2 fois sur échap pour ajouter sudo
 	web-search
 	systemd
 	# Other custom plugins
-	fzf-tab # set fzf key-bindings and completion
 )
 
 [[ -f "/etc/redhat-release" ]] && plugins+=dnf
@@ -139,6 +135,9 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 
 export FZF_CTRL_T_OPTS="--preview 'fzf-preview.zsh {}'"
 export FZF_ALT_C_OPTS="$FZF_CTRL_T_OPTS"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # bun completions
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"

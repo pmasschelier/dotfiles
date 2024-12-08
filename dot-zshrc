@@ -93,21 +93,29 @@ plugins=(
 	zsh-autosuggestions
 	zsh-completions
 	# builtin plugins
-	aliases # see: als --help
-	alias-finder # suggest aliases 
-	bgnotify # send notification for long-running commands
-	bun # sets up completion for Bun
-	colored-man-pages # adds colors to man pages
-	copyfile # add copyfile command
-	copypath # add copypath command
-	git
-	sudo # Appuyer 2 fois sur échap pour ajouter sudo
-	web-search
-	systemd
+	aliases             # see: als --help
+	alias-finder        # suggest aliases 
+    # NOTE: bgnotify requires notify-send or kdialog on Linux
+	bgnotify            # send notification for long-running commands
+	bun                 # sets up and upadate completion for Bun
+	colored-man-pages   # adds colors to man pages
+	copyfile            # add copyfile command
+	copypath            # add copypath command
+	git                 # add functions and aliases for git
+	sudo                # Press <Esc> 2 times to prepend sudo to current command
+	systemd             # add aliases for systemd
+    tmux                # add tmux aliases and env variables
+    vi-mode             # add vi motions
 	# Other custom plugins
 )
 
 [[ -f "/etc/redhat-release" ]] && plugins+=dnf
+
+#################### Configuration of zsh-completions plugin #################### 
+
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# Loading oh-my-zsh (should happen after all plugins configuration)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,25 +123,14 @@ source $ZSH/oh-my-zsh.sh
 
 export LESSOPEN='|~/bin/fzf-preview.zsh %s'
 
-# --- setup fzf theme ---
-
-# fg="#CBE0F0"
-# bg="#011628"
-# bg_highlight="#143652"
-# purple="#B388FF"
-# blue="#06BCE4"
-# cyan="#2CF9ED"
-#
-# export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
-# unset FZF_DEFAULT_OPTS
-
 # -- Use fd instead of fzf --
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'fzf-preview.zsh {}'"
+
+# export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_ALT_C_OPTS="$FZF_CTRL_T_OPTS"
 
 # Set up fzf key bindings and fuzzy completion
@@ -149,7 +146,17 @@ source <(fzf --zsh)
 # docker
 export DOCKER_BUILDKIT=1
 
-# source "${XDG_CONFIG_HOME:-$HOME/.config}/broot/launcher/bash/br"
+# NOTE: Adds a bunch of shortcuts to use git with fzf
+# CTRL-G CTRL-F for Files
+# CTRL-G CTRL-B for Branches
+# CTRL-G CTRL-T for Tags
+# CTRL-G CTRL-R for Remotes
+# CTRL-G CTRL-H for commit Hashes
+# CTRL-G CTRL-S for Stashes
+# CTRL-G CTRL-L for reflogs
+# CTRL-G CTRL-W for Worktrees
+# CTRL-G CTRL-E for Each ref (git for-each-ref)
+# See: https://github.com/junegunn/fzf-git.sh
 source "$HOME/.local/share/fzf-git.sh/fzf-git.sh"
 
 # Setup direnv

@@ -105,7 +105,6 @@ plugins=(
 	sudo                # Press <Esc> 2 times to prepend sudo to current command
 	systemd             # add aliases for systemd
     tmux                # add tmux aliases and env variables
-    vi-mode             # add vi motions
 	# Other custom plugins
 )
 

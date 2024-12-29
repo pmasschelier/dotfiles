@@ -25,6 +25,8 @@ git clone --recurse-submodules https://github.com/pmasschelier/dotfiles.git
 
 ```
 sudo dnf install neovim bat fzf ripgrep fd-find
+sudo dnf copr enable pgdev/ghostty
+sudo dnf install ghostty
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
 sudo dnf fastfetch procs git-delta duf procs glances

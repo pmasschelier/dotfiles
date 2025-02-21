@@ -13,6 +13,3 @@
 [submodule ".local/share/fzf-git.sh"]
 	path = dot-local/share/fzf-git.sh
 	url = https://github.com/junegunn/fzf-git.sh.git
-[submodule "dot-local/share/pwndbg"]
-	path = dot-local/share/pwndbg
-	url = https://github.com/pwndbg/pwndbg

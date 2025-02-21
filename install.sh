@@ -42,9 +42,9 @@ install_nvm() {
     PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
 }
 
-# install_gef() {
-#     wget -O ~/bin/gef.py -q https://gef.blah.cat/py
-# }
+install_gef() {
+    wget -O ~/bin/gef.py -q https://gef.blah.cat/py
+}
 
 # XDG Base Directory
 # See: https://wiki.archlinux.org/title/XDG_Base_Directory

@@ -135,6 +135,9 @@ export FZF_ALT_C_OPTS="$FZF_CTRL_T_OPTS"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+# ast-grep completions
+source <(ast-grep completions zsh)
+
 # bun completions
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 

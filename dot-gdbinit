@@ -3,5 +3,6 @@ source ~/bin/gef_tmux.py
 custom-tmux-setup
 # python custom_tmux_setup()
 set disassembly-flavor intel
+set output-radix 0xA
 gef config context.grow_stack_down 1
 gef config context.enable 1

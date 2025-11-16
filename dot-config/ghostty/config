@@ -12,3 +12,4 @@ keybind = ctrl+up=goto_split:top
 keybind = ctrl+down=goto_split:bottom
 
 keybind = ctrl+shift+minus=equalize_splits
+keybind = ctrl+shift+w=close_surface

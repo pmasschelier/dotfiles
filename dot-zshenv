@@ -31,6 +31,7 @@ export ZIG_INSTALL="$XDG_DATA_HOME/zig"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
+export OPAMROOT="$XDG_DATA_HOME/opam"
 
 OPT_PATHS=("/opt/*/bin(N)" "/opt/*/build(N)")
 # z parameter expansion flags:

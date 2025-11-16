@@ -11,10 +11,11 @@ return {
         --   },
         -- },
         perlnavigator = {},
-        asm_lsp = {
-          cmd = { "/home/tintin/.local/share/cargo/bin/asm-lsp" },
-          filetypes = { "asm", "s", "S" },
-        },
+        -- asm_lsp = {
+        --   cmd = { "/home/tintin/.local/share/cargo/bin/asm-lsp" },
+        --   filetypes = { "asm", "s", "S" },
+        -- },
+        nimls = {},
       },
     },
   },

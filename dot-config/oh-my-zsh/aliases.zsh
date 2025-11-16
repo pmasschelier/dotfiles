@@ -17,7 +17,7 @@ alias untar="tar -xf"
 alias cd..='cd ..'
 
 # Compilers options
-alias zcc="gcc $ARCHFLAGS -Wall -Wextra -pedantic -std=c11 -fno-common -fno-builtin"
+alias zcc="gcc $ARCHFLAGS -Wall -Wextra -pedantic -std=c23 -fno-common -fno-builtin"
 alias zpp="g++ $ARCHFLAGS -Wall -Wextra -pedantic -std=c++20 -fno-common -fno-builtin"
 alias disasm="objdump --source-comment='; ' --disassembler-color=extended --disassembler-options=intel --no-show-raw-insn"
 if (( $+commands[zigdown] )); then

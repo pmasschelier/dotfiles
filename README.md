@@ -46,6 +46,16 @@ tar czvf "`date --iso-8601`.tar.gz" -X backup-exclude.txt .
 My neovim configuration is based on the LazyVim distribution.
 I manage it as a separate repository using git-subtree package.
 
+To push to the remote repository:
+´´´sh
+git subtree push -P dot-config/nvim <remote> <branch>
+´´´
+
+To pull from the remote repository:
+´´´sh
+git subtree pull -P dot-config/nvim  <remote> <branch>
+´´´
+
 [See here for more informations](https://www.atlassian.com/git/tutorials/git-subtree)
 
 ## Javascript configuration

@@ -1,1 +1,1 @@
-return { { "echasnovski/mini.bufremove", version = "*" } }
+return { { "nvim-mini/mini.bufremove", version = "*" } }

@@ -8,6 +8,7 @@ alias c="clear"
 alias cat="bat --pager=never --plain"
 alias stow="stow --dotfiles"
 alias ltree="tree -dL 3 | lolcat"
+alias lvim="NVIM_APPNAME=nvim-lazyvim nvim"
 
 # tar
 alias tarls="tar -tvf"

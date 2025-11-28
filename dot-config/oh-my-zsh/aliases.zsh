@@ -34,8 +34,11 @@ alias ytb-playlist="yt-dlp -x -f 'bestaudio[ext=m4a]' -o '~/Musique/tmp/%(playli
 
 # systemctl aliases
 alias sysstart="sudo systemctl start"
+alias systart="sudo systemctl start"
 alias sysrestart="sudo systemctl restart"
+alias sysreload="sudo systemctl reload"
 alias sysstatus="sudo systemctl status"
+alias systatus="sudo systemctl status"
 alias sysstop="sudo systemctl stop"
 
 # alias nvim="alacritty -e nvim &"

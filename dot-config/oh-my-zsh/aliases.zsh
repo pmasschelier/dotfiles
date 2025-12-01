@@ -21,11 +21,6 @@ alias cd..='cd ..'
 alias zcc="gcc $ARCHFLAGS -Wall -Wextra -pedantic -std=c23 -fno-common -fno-builtin"
 alias zpp="g++ $ARCHFLAGS -Wall -Wextra -pedantic -std=c++20 -fno-common -fno-builtin"
 alias disasm="objdump --source-comment='; ' --disassembler-color=extended --disassembler-options=intel --no-show-raw-insn"
-if (( $+commands[zigdown] )); then
-	alias zigup="zigdown"
-elif (( $+commands[zigup] )); then
-	alias zigup="zigup --install-dir $ZIG_INSTALL --path-link $HOME/.local/bin/zig"
-fi
 
 alias sld="streamlink --hls-segment-threads 2 -p mpv -a '--cache=yes --demuxer-max-bytes=8192KiB --hwdec=auto-safe'"
 alias ytb-music="yt-dlp -x -f 'bestaudio[ext=m4a]' -o '~/Musique/tmp/%(title)s.%(ext)s' --no-playlist --embed-thumbnail"

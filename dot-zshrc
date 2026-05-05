@@ -104,7 +104,8 @@ plugins=(
 	git                 # add functions and aliases for git
 	sudo                # Press <Esc> 2 times to prepend sudo to current command
 	systemd             # add aliases for systemd
-    tmux                # add tmux aliases and env variables
+	tmux                # add tmux aliases and env variables
+	just                # autocompletions for just
 	# Other custom plugins
 )
 

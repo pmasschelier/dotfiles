@@ -13,3 +13,6 @@
 [submodule ".local/share/fzf-git.sh"]
 	path = dot-local/share/fzf-git.sh
 	url = https://github.com/junegunn/fzf-git.sh.git
+[submodule "dot-config/oh-my-zsh/plugins/zsh-justfile"]
+	path = dot-config/oh-my-zsh/plugins/zsh-justfile
+	url = git@github.com:JBarberU/zsh-justfile.git

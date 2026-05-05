@@ -18,7 +18,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 } XDG_{CONFIG,CACHE,DATA,STATE}_HOME
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
+if (( ${+SSH_CONNECTION} )); then
   export EDITOR='vim'  # For remote session
 else
   export EDITOR='nvim' # For local session

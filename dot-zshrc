@@ -177,3 +177,4 @@ fi
 # This section can be safely removed at any time if needed.
 [[ ! -r "$OPAMROOT/opam-init/init.zsh" ]] || source "$OPAMROOT/opam-init/init.zsh" > /dev/null 2> /dev/null
 # END opam configuration
+export PATH="$PATH:$HOME/.hoop/bin"
